@@ -5,8 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #root {
+      width: 100px;
+      height: 100px;
+      background-color: coral;
+    }
+  </style>
 </head>
 <body>
-  
+  <div id="root"></div>
+
+  <script>
+    // id 값이 문자열 root인 데이터를 문서에서 가져와줘
+    let root = document.getElementById('root');
+    console.log(root);
+    let weekend = ["월요일 오늘", "수요일 쉼", "금요일 놀자", "토요일에는 삼겹살", "일요일엔 잠"];
+    let Color = ["red", "blue", "green", "coral", "beige"]
+    let fontSizeUp = ["15px", "20px", "25px", "30px", "35px"]
+    let counter = 0;
+    
+    // addEventListener : 이벤트 핸들러
+    // 변화를 감지하겠다.
+    // 문자열 = 1번째 파라미터(매게변수) / 함수가필요 = 2번째 파라미터
+    root.addEventListener('click', function() {
+      // root textContet에 weekend배열 counter변수를 숫자로 할당
+      root.textContent = weekend[counter];
+      root.style.fontSize = fontSizeUp[counter];
+      root.style.backgroundColor = Color[counter];
+      
+      console.log(counter)
+      // counter 숫자 1씩 증가
+      counter = counter + 1;
+      // 현재 counter가 1 증가된 상태
+
+      // counter가 weekend의 배열길이보다 크거나 같다면 counter = 0으로 재할당해줘
+      if(counter >= weekend.length) {
+        counter = 0;
+      }
+      
+    });
+    
+  </script>
 </body>
 </html>
