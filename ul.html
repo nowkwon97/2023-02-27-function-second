@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 마크업에서는 작성한 것 -->
+  <div id="root"></div>
+  
+  <script>
+    let root = document.querySelector('#root');
+    console.dir(root);
+    // ul태그를 만들어도 div 태그에 나타나지 않음
+    let aa = document.createElement('ul');
+    // 수동으로 붙여줘야 하는 동작 필요
+    // 동적으로 객체를 생성한 것
+    root.appendChild(aa);
+    let bb = document.createElement('li');
+    // ul의 자식으로 li를 넣기위해 aa.appendChild(bb)
+    aa.appendChild(bb);
+    bb.textContent = "hello";
+  </script>
+</body>
+</html>
