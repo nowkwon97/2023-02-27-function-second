@@ -11,17 +11,34 @@
   <div id="root"></div>
   
   <script>
-    let root = document.querySelector('#root');
+    // 코딩할 때 되는지 안되는지 확인
+    // 공통된게 있다면 묶을 수 있지 않을까?
+    // 공통된 것은 묶어보자.
+    // 리터럴을 거더내고 엔진을 만들어보자.
+    // 코드를 잘 짜두면 필요할 때 언제든지 꺼내 쓸 수 있는 데이터가 된다.
+    function dataFunc(a, b, c, d) {
+      let obj = {
+        parentData : document.querySelector(a),
+        childrenData : document.createElement(b),
+        grandchlidren : document.createElement(c),
+        grandchlidrenText : d
+    }
+      return obj;
+    }
+    let tagArray = ["div", "ul", "li"];
+    let dataForm = dataFunc("#root", tagArray[1], tagArray[2], "hello");
+
+    // 리터럴이 아님
+    let root = dataForm.parentData;
     console.dir(root);
     // ul태그를 만들어도 div 태그에 나타나지 않음
-    let aa = document.createElement('ul');
+    let aa = dataForm.childrenData;
     // 수동으로 붙여줘야 하는 동작 필요
-    // 동적으로 객체를 생성한 것
     root.appendChild(aa);
-    let bb = document.createElement('li');
+    let bb = dataForm.grandchlidren;
     // ul의 자식으로 li를 넣기위해 aa.appendChild(bb)
     aa.appendChild(bb);
-    bb.textContent = "hello";
+    bb.textContent = dataForm.grandchlidrenText;
   </script>
 </body>
 </html>

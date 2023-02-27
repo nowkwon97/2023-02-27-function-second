@@ -5,13 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #root {
+      width: 100px;
+      height: 100px;
+      background-color: coral;
+      text-align: center;
+    }
+    
+  </style>
 </head>
 <body>
-  <div id="root"></div>
-
+  <div id="root">안녕하세요</div>
+  
+  <!-- 우선순위는 javascript가 훨씬 더 높다. -->
+  <!-- 절차의 문제에서 적용순위가 다르다. -->
+  <!-- css sheet를 사용하면 절차가 꼬인다. -->
+  <!-- 언젠가 css를 안쓰게 되는 이유. -->
+  <!-- css 의 우선순위는 아주 낮다. -->
+  <!-- css와 js가 동시에 할당되면 js 압승 -->
   <script>
     let root = document.getElementById('root');
-    console.log(root);
+    console.log(root.style);
+    root.style.width = "200px";
+    root.textContent = "안녕";
+    root.style.textAlign = "left";
+    root.style.backgroundColor = "blue";
+    // CSS, HTML 보다 JS가 우선순위가 더 높다.
   </script>
 </body>
 </html>
